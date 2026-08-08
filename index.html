@@ -1,19 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="ar" dir="rtl">
 
+<head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>PAWLI — Home Decor</title>
+<title>PAWLI — ديكور المنزل</title>
 
 <meta name="description"
-content="PAWLI Home Decor — elegant, calm and timeless home decoration, designed with care in Morocco.">
+content="PAWLI — ديكور منزلي أنيق وهادئ، مصمم بعناية في المغرب.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 
@@ -31,13 +31,16 @@ content="PAWLI Home Decor — elegant, calm and timeless home decoration, design
     --navy:#173b73;
     --ink:#292725;
     --muted:#766f68;
+
     --cream:#f7f1ea;
     --paper:#fcfaf7;
     --white:#fffdf9;
+
     --line:rgba(41,39,37,.14);
 
-    --serif:"Cormorant Garamond",Georgia,serif;
-    --sans:"Inter",Arial,sans-serif;
+    --serif:"Cormorant Garamond", Georgia, serif;
+    --sans:"Inter", Arial, sans-serif;
+    --arabic:"Cairo", Arial, sans-serif;
 }
 
 html{
@@ -51,6 +54,11 @@ body{
     font-weight:300;
     line-height:1.7;
     overflow-x:hidden;
+    transition:.3s;
+}
+
+body.rtl{
+    font-family:var(--arabic);
 }
 
 img{
@@ -68,6 +76,36 @@ input{
     font:inherit;
 }
 
+
+/* =====================================================
+   LANGUAGE
+===================================================== */
+
+.language-switcher{
+    position:relative;
+    display:flex;
+    align-items:center;
+    gap:5px;
+}
+
+.language-switcher button{
+    border:1px solid transparent;
+    background:transparent;
+    color:var(--navy);
+    cursor:pointer;
+    padding:6px 8px;
+    font-size:10px;
+    letter-spacing:.08em;
+    transition:.2s;
+}
+
+.language-switcher button:hover,
+.language-switcher button.active{
+    background:var(--navy);
+    color:white;
+}
+
+
 /* =====================================================
    TOP BAR
 ===================================================== */
@@ -82,22 +120,31 @@ input{
     text-transform:uppercase;
 }
 
+
 /* =====================================================
    HEADER
 ===================================================== */
 
 .site-header{
     height:92px;
+
     display:flex;
     align-items:center;
     justify-content:space-between;
+
     padding:0 5.5vw;
+
     background:rgba(252,250,247,.94);
+
     backdrop-filter:blur(15px);
+
     position:sticky;
     top:0;
+
     z-index:20;
+
     border-bottom:1px solid transparent;
+
     transition:.3s;
 }
 
@@ -144,13 +191,13 @@ input{
 nav{
     display:flex;
     align-items:center;
-    gap:32px;
+    gap:25px;
 }
 
 nav a,
 .nav-order{
     font-size:11px;
-    letter-spacing:.15em;
+    letter-spacing:.12em;
     text-transform:uppercase;
 }
 
@@ -196,6 +243,7 @@ nav a:hover::after{
     color:var(--navy);
 }
 
+
 /* =====================================================
    GENERAL
 ===================================================== */
@@ -209,6 +257,10 @@ nav a:hover::after{
     margin-bottom:22px;
 }
 
+body.rtl .eyebrow{
+    letter-spacing:.04em;
+}
+
 h1,
 h2,
 h3,
@@ -216,6 +268,14 @@ blockquote{
     font-family:var(--serif);
     font-weight:500;
     line-height:.98;
+}
+
+body.rtl h1,
+body.rtl h2,
+body.rtl h3,
+body.rtl blockquote{
+    font-family:var(--arabic);
+    line-height:1.25;
 }
 
 h1{
@@ -232,17 +292,28 @@ em{
     color:#927a63;
 }
 
+body.rtl em{
+    font-style:normal;
+}
+
+
 /* =====================================================
    HERO
 ===================================================== */
 
 .hero{
     min-height:calc(100vh - 128px);
+
     display:grid;
+
     grid-template-columns:42% 58%;
+
     align-items:center;
+
     padding:65px 5.5vw 85px;
+
     gap:4vw;
+
     background:
     linear-gradient(
         120deg,
@@ -255,6 +326,11 @@ em{
 .hero-copy{
     padding-left:5vw;
     max-width:610px;
+}
+
+body.rtl .hero-copy{
+    padding-left:0;
+    padding-right:5vw;
 }
 
 .hero-text{
@@ -283,6 +359,10 @@ em{
     transition:.3s;
 }
 
+body.rtl .btn{
+    letter-spacing:.03em;
+}
+
 .btn-dark{
     background:var(--navy);
     color:white;
@@ -299,10 +379,15 @@ em{
     letter-spacing:.17em;
 }
 
+body.rtl .text-link{
+    letter-spacing:.03em;
+}
+
 .text-link span{
     margin-left:7px;
     color:var(--navy);
 }
+
 
 /* =====================================================
    HERO IMAGE
@@ -317,7 +402,14 @@ em{
     margin-left:auto;
     overflow:hidden;
     aspect-ratio:4/5;
-    box-shadow:0 35px 80px rgba(76,58,43,.15);
+
+    box-shadow:
+    0 35px 80px rgba(76,58,43,.15);
+}
+
+body.rtl .image-frame{
+    margin-left:0;
+    margin-right:auto;
 }
 
 .image-frame img{
@@ -334,10 +426,20 @@ em{
     position:absolute;
     left:-32px;
     bottom:34px;
+
     background:var(--white);
+
     padding:21px 27px;
+
     min-width:150px;
-    box-shadow:0 16px 45px rgba(54,45,39,.12);
+
+    box-shadow:
+    0 16px 45px rgba(54,45,39,.12);
+}
+
+body.rtl .floating-note{
+    left:auto;
+    right:-32px;
 }
 
 .floating-note span{
@@ -352,6 +454,12 @@ em{
     line-height:1.05;
     margin-top:6px;
 }
+
+body.rtl .floating-note p{
+    font-family:var(--arabic);
+    line-height:1.4;
+}
+
 
 /* =====================================================
    INTRO
@@ -374,6 +482,7 @@ em{
     font-size:14px;
 }
 
+
 /* =====================================================
    SECTIONS
 ===================================================== */
@@ -381,6 +490,7 @@ em{
 .section{
     padding:125px 8vw;
 }
+
 
 /* =====================================================
    COLLECTION
@@ -406,9 +516,9 @@ em{
 
 .product-grid{
     display:grid;
-    grid-template-columns:minmax(0,1fr);
-    max-width:620px;
-    margin:0 auto;
+    grid-template-columns:1.15fr .85fr;
+    gap:23px;
+    align-items:start;
 }
 
 .product-card{
@@ -440,19 +550,30 @@ em{
     position:absolute;
     left:16px;
     top:16px;
+
     background:var(--white);
+
     padding:7px 11px;
+
     font-size:9px;
     letter-spacing:.13em;
     text-transform:uppercase;
 }
 
+body.rtl .product-tag{
+    left:auto;
+    right:16px;
+    letter-spacing:.03em;
+}
+
 .product-info{
     padding:19px 0 13px;
+
     display:flex;
     justify-content:space-between;
-    align-items:center;
+
     gap:15px;
+
     border-bottom:1px solid var(--line);
 }
 
@@ -468,39 +589,99 @@ em{
 
 .product-info strong{
     color:var(--navy);
-    font-size:15px;
+    font-size:12px;
     white-space:nowrap;
 }
 
-.product-actions{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:20px;
-    padding-top:15px;
-}
-
 .product-order{
-    border:1px solid var(--navy);
-    background:var(--navy);
-    color:white;
-    padding:12px 20px;
+    border:0;
+    background:transparent;
+    color:var(--navy);
+
+    padding:14px 0;
+
     font-size:10px;
     letter-spacing:.16em;
+
     text-transform:uppercase;
+
     cursor:pointer;
+
     transition:.3s;
 }
 
-.product-order:hover{
-    background:transparent;
-    color:var(--navy);
+body.rtl .product-order{
+    letter-spacing:.03em;
 }
 
-.product-note{
-    color:var(--muted);
-    font-size:10px;
+.product-order:hover{
+    letter-spacing:.22em;
 }
+
+
+/* =====================================================
+   COLLECTION SIDE CARD
+===================================================== */
+
+.collection-note{
+    min-height:390px;
+
+    background:var(--navy);
+
+    color:white;
+
+    padding:38px;
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+.collection-note::after{
+    content:"";
+
+    position:absolute;
+
+    width:220px;
+    height:220px;
+
+    border:1px solid rgba(255,255,255,.14);
+
+    border-radius:50%;
+
+    right:-85px;
+    bottom:-75px;
+}
+
+.collection-note-content{
+    height:100%;
+
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+}
+
+.collection-note .number{
+    font-family:var(--serif);
+    font-size:44px;
+    opacity:.55;
+    margin-bottom:70px;
+}
+
+.collection-note .eyebrow{
+    color:#d9c8b7;
+}
+
+.collection-note h3{
+    font-size:40px;
+    max-width:270px;
+    margin-bottom:auto;
+}
+
+.collection-note .text-link{
+    color:white;
+}
+
 
 /* =====================================================
    STORY
@@ -508,9 +689,13 @@ em{
 
 .story{
     display:grid;
+
     grid-template-columns:1fr 1fr;
+
     gap:9vw;
+
     align-items:center;
+
     background:var(--white);
 }
 
@@ -550,27 +735,36 @@ em{
     color:white;
 }
 
+
 /* =====================================================
    QUOTE
 ===================================================== */
 
 .quote-section{
     text-align:center;
+
     padding:120px 7vw;
+
     background:var(--cream);
 }
 
 .quote-mark{
     color:#b49a7f;
+
     font-family:var(--serif);
+
     font-size:110px;
+
     height:75px;
+
     line-height:1;
 }
 
 blockquote{
     font-size:clamp(35px,4vw,62px);
+
     max-width:850px;
+
     margin:0 auto 18px;
 }
 
@@ -580,14 +774,18 @@ blockquote{
     letter-spacing:.25em;
 }
 
+
 /* =====================================================
    CONTACT
 ===================================================== */
 
 .contact{
     display:flex;
+
     justify-content:space-between;
+
     gap:50px;
+
     background:var(--paper);
 }
 
@@ -603,31 +801,48 @@ blockquote{
     font-size:13px;
 }
 
-.contact-details a{
+.contact-details a.phone{
     display:block;
     color:var(--navy);
+
     font-family:var(--serif);
+
     font-size:27px;
+
     margin:12px 0;
 }
+
 
 /* =====================================================
    WHATSAPP
 ===================================================== */
 
 .whatsapp-link{
-    display:inline-flex !important;
+    display:inline-flex;
+
     align-items:center;
+
     gap:9px;
+
     margin-top:18px;
+
     padding:11px 17px;
+
     border:1px solid rgba(23,59,115,.35);
+
     color:var(--navy);
-    font-family:var(--sans) !important;
-    font-size:10px !important;
+
+    font-size:10px;
+
     letter-spacing:.14em;
+
     text-transform:uppercase;
+
     transition:.3s;
+}
+
+body.rtl .whatsapp-link{
+    letter-spacing:.03em;
 }
 
 .whatsapp-link:hover{
@@ -635,39 +850,54 @@ blockquote{
     color:white;
 }
 
+
 /* =====================================================
    FOOTER
 ===================================================== */
 
 footer{
     background:var(--navy);
+
     color:white;
+
     padding:38px 7vw;
+
     display:flex;
+
     align-items:center;
+
     justify-content:space-between;
+
     gap:30px;
 }
 
 .footer-brand strong{
     display:block;
+
     font-family:var(--serif);
+
     font-size:25px;
+
     letter-spacing:.15em;
 }
 
 .footer-brand span{
     color:#d9c8b7;
+
     font-size:7px;
+
     letter-spacing:.3em;
 }
 
 footer p,
 footer a{
     color:rgba(255,255,255,.62);
+
     font-size:10px;
+
     letter-spacing:.08em;
 }
+
 
 /* =====================================================
    MODAL
@@ -675,11 +905,17 @@ footer a{
 
 .modal{
     position:fixed;
+
     inset:0;
+
     z-index:100;
+
     display:none;
+
     align-items:center;
+
     justify-content:center;
+
     padding:18px;
 }
 
@@ -689,31 +925,53 @@ footer a{
 
 .modal-backdrop{
     position:absolute;
+
     inset:0;
+
     background:rgba(30,25,21,.55);
+
     backdrop-filter:blur(7px);
 }
 
 .modal-card{
     width:min(100%,560px);
+
     max-height:92vh;
+
     overflow:auto;
+
     position:relative;
+
     z-index:2;
+
     background:var(--white);
+
     padding:45px;
-    box-shadow:0 30px 90px rgba(0,0,0,.2);
+
+    box-shadow:
+    0 30px 90px rgba(0,0,0,.2);
 }
 
 .close-modal{
     position:absolute;
+
     top:17px;
     right:20px;
+
     border:0;
+
     background:transparent;
+
     font-size:29px;
+
     cursor:pointer;
+
     color:var(--muted);
+}
+
+body.rtl .close-modal{
+    right:auto;
+    left:20px;
 }
 
 .modal-card h2{
@@ -722,45 +980,64 @@ footer a{
 
 .modal-subtitle{
     color:var(--muted);
+
     font-size:13px;
+
     margin:13px 0 25px;
 }
 
 label{
     display:block;
+
     font-size:10px;
+
     text-transform:uppercase;
+
     letter-spacing:.13em;
+
     color:#665f59;
+
     margin-bottom:17px;
+}
+
+body.rtl label{
+    letter-spacing:.02em;
 }
 
 input{
     width:100%;
+
     display:block;
+
     margin-top:7px;
+
     border:1px solid var(--line);
+
     background:white;
+
     padding:12px 13px;
+
     outline:none;
+
     font-size:13px;
+
     color:var(--ink);
+
     transition:.2s;
 }
 
 input:focus{
     border-color:var(--navy);
-    box-shadow:0 0 0 3px rgba(23,59,115,.06);
-}
 
-input[readonly]{
-    background:#f5f1ec;
-    color:var(--muted);
+    box-shadow:
+    0 0 0 3px rgba(23,59,115,.06);
 }
 
 .form-row{
     display:grid;
+
     grid-template-columns:1fr 1fr;
+
     gap:15px;
 }
 
@@ -769,21 +1046,18 @@ input[readonly]{
     margin-top:4px;
 }
 
-.form-status{
-    min-height:24px;
-    text-align:center;
-    color:#9a4b38;
-    font-size:12px;
-    margin-top:9px;
-}
-
 .privacy-note{
     display:block;
+
     color:#958b82;
+
     text-align:center;
+
     font-size:9px;
+
     margin-top:10px;
 }
+
 
 /* =====================================================
    SUCCESS
@@ -797,12 +1071,19 @@ input[readonly]{
 .success-icon{
     width:58px;
     height:58px;
+
     border-radius:50%;
+
     background:#e9e1d8;
+
     color:var(--navy);
+
     display:grid;
+
     place-items:center;
+
     margin:0 auto 25px;
+
     font-size:25px;
 }
 
@@ -812,10 +1093,14 @@ input[readonly]{
 
 .success-view>p:not(.eyebrow){
     color:var(--muted);
+
     margin:0 auto 25px;
+
     max-width:360px;
+
     font-size:13px;
 }
+
 
 /* =====================================================
    ANIMATION
@@ -823,14 +1108,19 @@ input[readonly]{
 
 .reveal{
     opacity:0;
+
     transform:translateY(25px);
-    transition:opacity .8s, transform .8s;
+
+    transition:
+    opacity .8s,
+    transform .8s;
 }
 
 .reveal.visible{
     opacity:1;
     transform:translateY(0);
 }
+
 
 /* =====================================================
    TABLET
@@ -848,6 +1138,10 @@ input[readonly]{
         max-width:700px;
     }
 
+    body.rtl .hero-copy{
+        padding-right:0;
+    }
+
     .hero-visual{
         margin-top:30px;
     }
@@ -856,8 +1150,17 @@ input[readonly]{
         margin:auto;
     }
 
+    body.rtl .image-frame{
+        margin:auto;
+    }
+
     .floating-note{
         left:10px;
+    }
+
+    body.rtl .floating-note{
+        left:auto;
+        right:10px;
     }
 
     .story{
@@ -869,11 +1172,16 @@ input[readonly]{
     }
 }
 
+
 /* =====================================================
    MOBILE
 ===================================================== */
 
 @media(max-width:700px){
+
+    .announcement{
+        font-size:8px;
+    }
 
     .site-header{
         height:75px;
@@ -895,15 +1203,24 @@ input[readonly]{
 
     nav{
         display:none;
+
         position:absolute;
+
         top:75px;
+
         left:0;
         right:0;
+
         background:var(--paper);
+
         padding:25px 7vw;
+
         flex-direction:column;
+
         align-items:flex-start;
+
         gap:22px;
+
         border-bottom:1px solid var(--line);
     }
 
@@ -916,7 +1233,7 @@ input[readonly]{
     }
 
     h1{
-        font-size:55px;
+        font-size:48px;
     }
 
     .hero-text{
@@ -943,17 +1260,12 @@ input[readonly]{
         margin-top:20px;
     }
 
-    .product-actions{
-        flex-direction:column;
-        align-items:stretch;
+    .product-grid{
+        grid-template-columns:1fr;
     }
 
-    .product-order{
-        width:100%;
-    }
-
-    .product-note{
-        text-align:center;
+    .collection-note{
+        min-height:300px;
     }
 
     .contact{
@@ -979,7 +1291,7 @@ input[readonly]{
     }
 
     .modal-card h2{
-        font-size:45px;
+        font-size:42px;
     }
 
     .floating-note{
@@ -987,21 +1299,36 @@ input[readonly]{
         bottom:20px;
         padding:15px 18px;
     }
+
+    body.rtl .floating-note{
+        left:auto;
+        right:5px;
+    }
+
+    .language-switcher{
+        margin-bottom:5px;
+    }
 }
 
 </style>
-
 </head>
 
-<body>
+
+<body class="rtl">
+
 
 <!-- =====================================================
      TOP BAR
 ===================================================== -->
 
 <div class="announcement">
-    Designed with care · Made in Morocco
+
+    <span data-i18n="announcement">
+        مصمم بعناية · مصنوع في المغرب
+    </span>
+
 </div>
+
 
 <!-- =====================================================
      HEADER
@@ -1029,46 +1356,80 @@ input[readonly]{
 
     </a>
 
+
     <button
         class="menu-toggle"
         id="menuToggle"
-        aria-label="Open menu">
+        aria-label="فتح القائمة">
 
         ☰
 
     </button>
 
+
     <nav id="mainNav">
 
-        <a href="#home">
-            Home
+        <a href="#home" data-i18n="navHome">
+            الرئيسية
         </a>
 
-        <a href="#collection">
-            Collection
+        <a href="#collection" data-i18n="navCollection">
+            المجموعة
         </a>
 
-        <a href="#story">
-            Our Story
+        <a href="#story" data-i18n="navStory">
+            قصتنا
         </a>
 
-        <a href="#contact">
-            Contact
+        <a href="#contact" data-i18n="navContact">
+            تواصل معنا
         </a>
+
 
         <button
             class="nav-order"
-            data-product="PAWLI Signature Set">
+            data-product="PAWLI Signature Set"
+            data-i18n="navOrder">
 
-            Order
+            اطلب الآن
 
         </button>
+
+
+        <div class="language-switcher">
+
+            <button
+                data-lang="ar"
+                class="active">
+
+                AR
+
+            </button>
+
+            <button
+                data-lang="fr">
+
+                FR
+
+            </button>
+
+            <button
+                data-lang="en">
+
+                EN
+
+            </button>
+
+        </div>
 
     </nav>
 
 </header>
 
+
+
 <main>
+
 
 <!-- =====================================================
      HERO
@@ -1078,46 +1439,60 @@ input[readonly]{
     class="hero"
     id="home">
 
+
     <div class="hero-copy reveal">
 
-        <p class="eyebrow">
-            QUIET BEAUTY FOR YOUR HOME
+        <p
+            class="eyebrow"
+            data-i18n="heroEyebrow">
+
+            جمال هادئ لمنزلك
+
         </p>
 
-        <h1>
 
-            Something beautiful
+        <h1 data-i18n="heroTitle">
+
+            شيء جميل
 
             <br>
 
-            <em>belongs at home.</em>
+            <em>ينتمي إلى منزلك.</em>
 
         </h1>
 
-        <p class="hero-text">
 
-            Minimal forms, warm textures and timeless details —
-            thoughtfully created to make your everyday spaces feel softer.
+        <p
+            class="hero-text"
+            data-i18n="heroText">
+
+            أشكال بسيطة، خامات دافئة وتفاصيل خالدة —
+            صُممت بعناية لتجعل مساحاتك اليومية أكثر راحة وجمالاً.
 
         </p>
+
 
         <div class="hero-actions">
 
             <a
                 class="btn btn-dark"
-                href="#collection">
+                href="#collection"
+                data-i18n="discover">
 
-                Discover the collection
+                اكتشف المجموعة
 
             </a>
+
 
             <a
                 class="text-link"
                 href="#story">
 
-                Our story
+                <span data-i18n="ourStory">
+                    قصتنا
+                </span>
 
-                <span>↗️</span>
+                <span>↗</span>
 
             </a>
 
@@ -1125,27 +1500,30 @@ input[readonly]{
 
     </div>
 
+
+
     <div class="hero-visual reveal">
 
         <div class="image-frame">
 
             <img
                 src="hero-product.jpg"
-                alt="PAWLI white vase and decorative tray">
+                alt="PAWLI product">
 
         </div>
+
 
         <div class="floating-note">
 
             <span>01</span>
 
-            <p>
+            <p data-i18n="floatingNote">
 
-                Soft forms.
+                أشكال ناعمة.
 
                 <br>
 
-                Natural calm.
+                هدوء طبيعي.
 
             </p>
 
@@ -1155,35 +1533,45 @@ input[readonly]{
 
 </section>
 
+
+
 <!-- =====================================================
      INTRO
 ===================================================== -->
 
 <section class="intro-section">
 
-    <p class="eyebrow">
-        PAWLI PHILOSOPHY
+    <p
+        class="eyebrow"
+        data-i18n="philosophy">
+
+        فلسفة PAWLI
+
     </p>
 
-    <h2>
 
-        Less noise.
+    <h2 data-i18n="introTitle">
+
+        ضوضاء أقل.
 
         <br>
 
-        <em>More feeling.</em>
+        <em>إحساس أكثر.</em>
 
     </h2>
 
-    <p>
 
-        PAWLI is a Moroccan home decor concept
-        built around peaceful interiors, sculptural ceramics
-        and small details that make a room feel complete.
+    <p data-i18n="introText">
+
+        PAWLI هو مفهوم مغربي للديكور المنزلي،
+        يرتكز على المساحات الهادئة، والأشكال الأنيقة
+        والتفاصيل الصغيرة التي تجعل المكان متكاملاً.
 
     </p>
 
 </section>
+
+
 
 <!-- =====================================================
      COLLECTION
@@ -1193,35 +1581,45 @@ input[readonly]{
     class="collection section"
     id="collection">
 
+
     <div class="section-heading">
 
         <div>
 
-            <p class="eyebrow">
-                THE COLLECTION
+            <p
+                class="eyebrow"
+                data-i18n="collectionEyebrow">
+
+                المجموعة
+
             </p>
 
-            <h2>
+            <h2 data-i18n="collectionTitle">
 
-                A piece made to
+                قطع صنعت
 
-                <em>stay.</em>
+                <em>لتبقى.</em>
 
             </h2>
 
         </div>
 
-        <p class="section-description">
 
-            A signature decorative piece designed
-            to bring warmth, simplicity and character
-            to your space.
+        <p
+            class="section-description"
+            data-i18n="collectionDescription">
+
+            قطعة مميزة وهادئة مصممة لتناسب الطاولات،
+            الرفوف والزوايا الجميلة في منزلك.
 
         </p>
 
     </div>
 
+
+
     <div class="product-grid">
+
 
         <!-- PRODUCT -->
 
@@ -1233,25 +1631,35 @@ input[readonly]{
                     src="hero-product.jpg"
                     alt="PAWLI Signature Set">
 
-                <span class="product-tag">
-                    Bestseller
+                <span
+                    class="product-tag"
+                    data-i18n="bestseller">
+
+                    الأكثر مبيعاً
+
                 </span>
 
             </div>
+
 
             <div class="product-info">
 
                 <div>
 
-                    <h3>
+                    <h3 data-i18n="productName">
+
                         PAWLI Signature Set
+
                     </h3>
 
-                    <p>
-                        Vase · tray · sculptural bowl
+                    <p data-i18n="productDescription">
+
+                        مزهرية · صينية · وعاء ديكوري
+
                     </p>
 
                 </div>
+
 
                 <strong>
                     99 MAD
@@ -1259,19 +1667,59 @@ input[readonly]{
 
             </div>
 
-            <div class="product-actions">
 
-                <span class="product-note">
-                    Delivery available in Morocco
+            <button
+                class="product-order"
+                data-product="PAWLI Signature Set"
+                data-i18n="buyNow">
+
+                شراء الآن →
+
+            </button>
+
+        </article>
+
+
+
+        <!-- SIDE CARD -->
+
+        <article class="collection-note reveal">
+
+            <div class="collection-note-content">
+
+                <span class="number">
+                    01
                 </span>
 
-                <button
-                    class="product-order"
-                    data-product="PAWLI Signature Set">
 
-                    Order Now
+                <p
+                    class="eyebrow"
+                    data-i18n="designedCare">
 
-                </button>
+                    مصمم بعناية
+
+                </p>
+
+
+                <h3 data-i18n="sideTitle">
+
+                    قطعة تضيف لمسة
+                    من الهدوء إلى منزلك.
+
+                </h3>
+
+
+                <a
+                    href="#story"
+                    class="text-link">
+
+                    <span data-i18n="discoverPawli">
+                        اكتشف PAWLI
+                    </span>
+
+                    <span>↗</span>
+
+                </a>
 
             </div>
 
@@ -1281,6 +1729,8 @@ input[readonly]{
 
 </section>
 
+
+
 <!-- =====================================================
      STORY
 ===================================================== -->
@@ -1288,6 +1738,7 @@ input[readonly]{
 <section
     class="story section"
     id="story">
+
 
     <div class="story-image reveal">
 
@@ -1297,53 +1748,70 @@ input[readonly]{
 
     </div>
 
+
     <div class="story-copy reveal">
 
-        <p class="eyebrow">
-            OUR STORY
+        <p
+            class="eyebrow"
+            data-i18n="storyEyebrow">
+
+            قصتنا
+
         </p>
 
-        <h2>
 
-            Made in Morocco.
+        <h2 data-i18n="storyTitle">
+
+            صنع في المغرب.
 
             <br>
 
-            <em>Made for moments.</em>
+            <em>صنع للحظات.</em>
 
         </h2>
 
-        <p>
 
-            We believe a beautiful home does not need
-            to be loud. PAWLI brings together clean
-            silhouettes, gentle colors and handmade-inspired
-            textures to create pieces that work naturally
-            with your space.
+        <p data-i18n="storyText1">
+
+            نؤمن أن المنزل الجميل لا يحتاج إلى أن يكون صاخباً.
+            تجمع PAWLI بين الأشكال النظيفة والألوان الهادئة
+            والخامات المستوحاة من الصناعة اليدوية لإنشاء قطع
+            تنسجم بشكل طبيعي مع مساحتك.
 
         </p>
 
+
         <p>
 
-            Every detail is chosen with one idea in mind:
+            <span data-i18n="storyText2">
 
-            <strong>
-                your home should feel like you.
+                كل تفصيل تم اختياره بفكرة واحدة:
+
+            </span>
+
+            <strong data-i18n="storyStrong">
+
+                يجب أن يشعر منزلك بأنه يشبهك.
+
             </strong>
 
         </p>
 
+
         <a
             class="btn btn-outline"
-            href="#contact">
+            href="#contact"
+            data-i18n="talkPawli">
 
-            Talk to PAWLI
+            تواصل مع PAWLI
 
         </a>
 
     </div>
 
 </section>
+
+
 
 <!-- =====================================================
      QUOTE
@@ -1355,18 +1823,22 @@ input[readonly]{
         “
     </div>
 
-    <blockquote>
 
-        Beauty lives in the details
-        we choose to keep.
+    <blockquote data-i18n="quote">
+
+        الجمال يكمن في التفاصيل
+        التي نختار الاحتفاظ بها.
 
     </blockquote>
+
 
     <p>
         — PAWLI
     </p>
 
 </section>
+
+
 
 <!-- =====================================================
      CONTACT
@@ -1376,40 +1848,54 @@ input[readonly]{
     class="contact section"
     id="contact">
 
+
     <div>
 
-        <p class="eyebrow">
-            GET IN TOUCH
+        <p
+            class="eyebrow"
+            data-i18n="contactEyebrow">
+
+            تواصل معنا
+
         </p>
 
-        <h2>
 
-            Bring a little
+        <h2 data-i18n="contactTitle">
+
+            أضف القليل
 
             <br>
 
-            <em>calm home.</em>
+            <em>من الهدوء إلى منزلك.</em>
 
         </h2>
 
     </div>
 
+
     <div class="contact-details">
 
-        <p>
-            For orders, questions or collaborations:
+        <p data-i18n="contactText">
+
+            للطلبات، الأسئلة أو التعاون:
+
         </p>
 
-        <span>
-            Morocco · Online orders
+        <span data-i18n="location">
+
+            المغرب · الطلبات عبر الإنترنت
+
         </span>
 
+
         <a
+            class="phone"
             href="tel:+212620146461">
 
             +212 620 146 461
 
         </a>
+
 
         <a
             class="whatsapp-link"
@@ -1426,6 +1912,8 @@ input[readonly]{
 </section>
 
 </main>
+
+
 
 <!-- =====================================================
      FOOTER
@@ -1445,20 +1933,29 @@ input[readonly]{
 
     </div>
 
+
     <p>
 
-        ©️ <span id="year"></span>
-        PAWLI. All rights reserved.
+        © <span id="year"></span>
+        PAWLI.
+        <span data-i18n="rights">
+            جميع الحقوق محفوظة.
+        </span>
 
     </p>
 
-    <a href="#top">
 
-        Back to top ↑
+    <a
+        href="#top"
+        data-i18n="backTop">
+
+        العودة للأعلى ↑
 
     </a>
 
 </footer>
+
+
 
 <!-- =====================================================
      ORDER MODAL
@@ -1469,12 +1966,15 @@ input[readonly]{
     id="orderModal"
     aria-hidden="true">
 
+
     <div
         class="modal-backdrop"
         data-close-modal>
     </div>
 
+
     <div class="modal-card">
+
 
         <button
             class="close-modal"
@@ -1485,93 +1985,121 @@ input[readonly]{
 
         </button>
 
-        <!-- FORM -->
+
+        <!-- FORM VIEW -->
 
         <div id="formView">
 
-            <p class="eyebrow">
-                PAWLI ORDER
+            <p
+                class="eyebrow"
+                data-i18n="orderEyebrow">
+
+                طلب PAWLI
+
             </p>
 
-            <h2>
-                Make it yours.
+
+            <h2 data-i18n="orderTitle">
+                اجعلها لك.
             </h2>
 
-            <p class="modal-subtitle">
 
-                Fill in your details and we will open
-                WhatsApp with your order information.
+            <p
+                class="modal-subtitle"
+                data-i18n="orderSubtitle">
+
+                أدخل معلوماتك وسنتواصل معك لتأكيد طلبك.
 
             </p>
 
+
+
             <form id="orderForm">
+
 
                 <input
                     type="hidden"
                     id="product"
                     name="product">
 
+
                 <label>
 
-                    Full name
+                    <span data-i18n="nameLabel">
+                        الاسم الكامل
+                    </span>
 
                     <input
                         type="text"
                         name="name"
-                        placeholder="Your full name"
-                        autocomplete="name"
+                        id="customerName"
+                        placeholder="اسمك الكامل"
                         required>
 
                 </label>
 
+
+
                 <div class="form-row">
+
 
                     <label>
 
-                        Phone
+                        <span data-i18n="phoneLabel">
+                            الهاتف
+                        </span>
 
                         <input
                             type="tel"
                             name="phone"
                             placeholder="06 XX XX XX XX"
-                            autocomplete="tel"
                             required>
 
                     </label>
 
+
                     <label>
 
-                        City
+                        <span data-i18n="cityLabel">
+                            المدينة
+                        </span>
 
                         <input
                             type="text"
                             name="city"
-                            placeholder="Meknes"
-                            autocomplete="address-level2"
+                            placeholder="مكناس"
                             required>
 
                     </label>
 
                 </div>
 
+
+
                 <label>
 
-                    Address
+                    <span data-i18n="addressLabel">
+                        العنوان
+                    </span>
 
                     <input
                         type="text"
                         name="address"
-                        placeholder="Your delivery address"
-                        autocomplete="street-address"
+                        placeholder="عنوان التوصيل"
                         required>
 
                 </label>
 
+
+
                 <div class="form-row">
+
 
                     <label>
 
-                        Quantity
+                        <span data-i18n="quantityLabel">
+                            الكمية
+                        </span>
 
                         <input
                             type="number"
@@ -1583,9 +2111,12 @@ input[readonly]{
 
                     </label>
 
+
                     <label>
 
-                        Product
+                        <span data-i18n="productLabel">
+                            المنتج
+                        </span>
 
                         <input
                             type="text"
@@ -1596,24 +2127,30 @@ input[readonly]{
 
                 </div>
 
+
+
                 <button
                     class="btn btn-dark full"
                     type="submit"
-                    id="submitOrder">
+                    id="submitOrder"
+                    data-i18n="confirmOrder">
 
-                    Order via WhatsApp
+                    تأكيد الطلب
 
                 </button>
+
 
                 <p
                     class="form-status"
                     id="formStatus">
                 </p>
 
-                <small class="privacy-note">
 
-                    Your information is used only
-                    to process your order.
+                <small
+                    class="privacy-note"
+                    data-i18n="privacy">
+
+                    سيتم استخدام معلوماتك فقط لمعالجة طلبك.
 
                 </small>
 
@@ -1621,37 +2158,49 @@ input[readonly]{
 
         </div>
 
-        <!-- SUCCESS -->
+
+
+        <!-- SUCCESS VIEW -->
 
         <div
             class="success-view"
             id="successView"
             hidden>
 
+
             <div class="success-icon">
                 ✓
             </div>
 
-            <p class="eyebrow">
-                ORDER READY
+
+            <p
+                class="eyebrow"
+                data-i18n="successEyebrow">
+
+                تم استلام الطلب
+
             </p>
 
-            <h2>
-                Thank you.
+
+            <h2 data-i18n="successTitle">
+                شكراً لك.
             </h2>
 
-            <p>
 
-                Your order information has been prepared.
-                WhatsApp will open so you can send it to PAWLI.
+            <p data-i18n="successText">
+
+                تم إرسال طلبك عبر WhatsApp.
+                سنتواصل معك قريباً لتأكيد التفاصيل.
 
             </p>
+
 
             <button
                 class="btn btn-dark"
-                data-close-modal>
+                data-close-modal
+                data-i18n="continue">
 
-                Continue browsing
+                متابعة التصفح
 
             </button>
 
@@ -1661,12 +2210,15 @@ input[readonly]{
 
 </div>
 
+
+
 <script>
 
 /* =====================================================
-   PAWLI JAVASCRIPT
+   PAWLI
    NO GOOGLE SHEETS
    NO GOOGLE APPS SCRIPT
+   WHATSAPP ORDERS
 ===================================================== */
 
 
@@ -1681,18 +2233,700 @@ const WHATSAPP_NUMBER = "212620146461";
    YEAR
 ===================================================== */
 
-const yearElement = document.getElementById("year");
+document.getElementById("year").textContent =
+new Date().getFullYear();
 
-if(yearElement){
 
-    yearElement.textContent =
-    new Date().getFullYear();
+/* =====================================================
+   TRANSLATIONS
+===================================================== */
+
+const translations = {
+
+    ar: {
+
+        announcement:
+        "مصمم بعناية · مصنوع في المغرب",
+
+        navHome:
+        "الرئيسية",
+
+        navCollection:
+        "المجموعة",
+
+        navStory:
+        "قصتنا",
+
+        navContact:
+        "تواصل معنا",
+
+        navOrder:
+        "اطلب الآن",
+
+        heroEyebrow:
+        "جمال هادئ لمنزلك",
+
+        heroTitle:
+        "شيء جميل<br><em>ينتمي إلى منزلك.</em>",
+
+        heroText:
+        "أشكال بسيطة، خامات دافئة وتفاصيل خالدة — صُممت بعناية لتجعل مساحاتك اليومية أكثر راحة وجمالاً.",
+
+        discover:
+        "اكتشف المجموعة",
+
+        ourStory:
+        "قصتنا",
+
+        floatingNote:
+        "أشكال ناعمة.<br>هدوء طبيعي.",
+
+        philosophy:
+        "فلسفة PAWLI",
+
+        introTitle:
+        "ضوضاء أقل.<br><em>إحساس أكثر.</em>",
+
+        introText:
+        "PAWLI هو مفهوم مغربي للديكور المنزلي، يرتكز على المساحات الهادئة، والأشكال الأنيقة والتفاصيل الصغيرة التي تجعل المكان متكاملاً.",
+
+        collectionEyebrow:
+        "المجموعة",
+
+        collectionTitle:
+        "قطع صنعت <em>لتبقى.</em>",
+
+        collectionDescription:
+        "قطعة مميزة وهادئة مصممة لتناسب الطاولات، الرفوف والزوايا الجميلة في منزلك.",
+
+        bestseller:
+        "الأكثر مبيعاً",
+
+        productName:
+        "PAWLI Signature Set",
+
+        productDescription:
+        "مزهرية · صينية · وعاء ديكوري",
+
+        buyNow:
+        "شراء الآن →",
+
+        designedCare:
+        "مصمم بعناية",
+
+        sideTitle:
+        "قطعة تضيف لمسة من الهدوء إلى منزلك.",
+
+        discoverPawli:
+        "اكتشف PAWLI",
+
+        storyEyebrow:
+        "قصتنا",
+
+        storyTitle:
+        "صنع في المغرب.<br><em>صنع للحظات.</em>",
+
+        storyText1:
+        "نؤمن أن المنزل الجميل لا يحتاج إلى أن يكون صاخباً. تجمع PAWLI بين الأشكال النظيفة والألوان الهادئة والخامات المستوحاة من الصناعة اليدوية لإنشاء قطع تنسجم بشكل طبيعي مع مساحتك.",
+
+        storyText2:
+        "كل تفصيل تم اختياره بفكرة واحدة:",
+
+        storyStrong:
+        "يجب أن يشعر منزلك بأنه يشبهك.",
+
+        talkPawli:
+        "تواصل مع PAWLI",
+
+        quote:
+        "الجمال يكمن في التفاصيل التي نختار الاحتفاظ بها.",
+
+        contactEyebrow:
+        "تواصل معنا",
+
+        contactTitle:
+        "أضف القليل<br><em>من الهدوء إلى منزلك.</em>",
+
+        contactText:
+        "للطلبات، الأسئلة أو التعاون:",
+
+        location:
+        "المغرب · الطلبات عبر الإنترنت",
+
+        rights:
+        "جميع الحقوق محفوظة.",
+
+        backTop:
+        "العودة للأعلى ↑",
+
+        orderEyebrow:
+        "طلب PAWLI",
+
+        orderTitle:
+        "اجعلها لك.",
+
+        orderSubtitle:
+        "أدخل معلوماتك وسنتواصل معك لتأكيد طلبك.",
+
+        nameLabel:
+        "الاسم الكامل",
+
+        phoneLabel:
+        "الهاتف",
+
+        cityLabel:
+        "المدينة",
+
+        addressLabel:
+        "العنوان",
+
+        quantityLabel:
+        "الكمية",
+
+        productLabel:
+        "المنتج",
+
+        confirmOrder:
+        "تأكيد الطلب",
+
+        privacy:
+        "سيتم استخدام معلوماتك فقط لمعالجة طلبك.",
+
+        successEyebrow:
+        "تم استلام الطلب",
+
+        successTitle:
+        "شكراً لك.",
+
+        successText:
+        "تم إرسال طلبك عبر WhatsApp. سنتواصل معك قريباً لتأكيد التفاصيل.",
+
+        continue:
+        "متابعة التصفح",
+
+        namePlaceholder:
+        "اسمك الكامل",
+
+        cityPlaceholder:
+        "مكناس",
+
+        addressPlaceholder:
+        "عنوان التوصيل"
+
+    },
+
+
+    fr: {
+
+        announcement:
+        "Conçu avec soin · Fabriqué au Maroc",
+
+        navHome:
+        "Accueil",
+
+        navCollection:
+        "Collection",
+
+        navStory:
+        "Notre histoire",
+
+        navContact:
+        "Contact",
+
+        navOrder:
+        "Commander",
+
+        heroEyebrow:
+        "UNE BEAUTÉ CALME POUR VOTRE MAISON",
+
+        heroTitle:
+        "Quelque chose de beau<br><em>a sa place chez vous.</em>",
+
+        heroText:
+        "Des formes minimalistes, des textures chaleureuses et des détails intemporels — pensés avec soin pour rendre votre intérieur plus doux.",
+
+        discover:
+        "Découvrir la collection",
+
+        ourStory:
+        "Notre histoire",
+
+        floatingNote:
+        "Formes douces.<br>Calme naturel.",
+
+        philosophy:
+        "PHILOSOPHIE PAWLI",
+
+        introTitle:
+        "Moins de bruit.<br><em>Plus d'émotion.</em>",
+
+        introText:
+        "PAWLI est un concept marocain de décoration intérieure basé sur des espaces paisibles, des formes sculpturales et de petits détails qui rendent une pièce complète.",
+
+        collectionEyebrow:
+        "LA COLLECTION",
+
+        collectionTitle:
+        "Des pièces faites pour <em>durer.</em>",
+
+        collectionDescription:
+        "Une pièce élégante et apaisante conçue pour les tables, les étagères et les coins tranquilles de votre maison.",
+
+        bestseller:
+        "Best-seller",
+
+        productName:
+        "PAWLI Signature Set",
+
+        productDescription:
+        "Vase · plateau · bol décoratif",
+
+        buyNow:
+        "Acheter maintenant →",
+
+        designedCare:
+        "CONÇU AVEC SOIN",
+
+        sideTitle:
+        "Un objet qui apporte une touche de calme à votre intérieur.",
+
+        discoverPawli:
+        "Découvrir PAWLI",
+
+        storyEyebrow:
+        "NOTRE HISTOIRE",
+
+        storyTitle:
+        "Fabriqué au Maroc.<br><em>Créé pour vos moments.</em>",
+
+        storyText1:
+        "Nous croyons qu'une belle maison n'a pas besoin d'être bruyante. PAWLI associe des silhouettes épurées, des couleurs douces et des textures inspirées de l'artisanat pour créer des pièces qui s'intègrent naturellement à votre espace.",
+
+        storyText2:
+        "Chaque détail est choisi avec une seule idée en tête :",
+
+        storyStrong:
+        "votre maison doit vous ressembler.",
+
+        talkPawli:
+        "Parler à PAWLI",
+
+        quote:
+        "La beauté vit dans les détails que nous choisissons de garder.",
+
+        contactEyebrow:
+        "CONTACTEZ-NOUS",
+
+        contactTitle:
+        "Apportez un peu<br><em>de calme chez vous.</em>",
+
+        contactText:
+        "Pour les commandes, questions ou collaborations :",
+
+        location:
+        "Maroc · Commandes en ligne",
+
+        rights:
+        "Tous droits réservés.",
+
+        backTop:
+        "Retour en haut ↑",
+
+        orderEyebrow:
+        "COMMANDE PAWLI",
+
+        orderTitle:
+        "Faites-la vôtre.",
+
+        orderSubtitle:
+        "Remplissez vos informations et nous vous contacterons pour confirmer votre commande.",
+
+        nameLabel:
+        "Nom complet",
+
+        phoneLabel:
+        "Téléphone",
+
+        cityLabel:
+        "Ville",
+
+        addressLabel:
+        "Adresse",
+
+        quantityLabel:
+        "Quantité",
+
+        productLabel:
+        "Produit",
+
+        confirmOrder:
+        "Confirmer la commande",
+
+        privacy:
+        "Vos informations seront utilisées uniquement pour traiter votre commande.",
+
+        successEyebrow:
+        "COMMANDE REÇUE",
+
+        successTitle:
+        "Merci.",
+
+        successText:
+        "Votre commande a été envoyée via WhatsApp. Nous vous contacterons bientôt pour confirmer les détails.",
+
+        continue:
+        "Continuer",
+
+        namePlaceholder:
+        "Votre nom complet",
+
+        cityPlaceholder:
+        "Meknès",
+
+        addressPlaceholder:
+        "Votre adresse de livraison"
+
+    },
+
+
+    en: {
+
+        announcement:
+        "Designed with care · Made in Morocco",
+
+        navHome:
+        "Home",
+
+        navCollection:
+        "Collection",
+
+        navStory:
+        "Our Story",
+
+        navContact:
+        "Contact",
+
+        navOrder:
+        "Order",
+
+        heroEyebrow:
+        "QUIET BEAUTY FOR YOUR HOME",
+
+        heroTitle:
+        "Something beautiful<br><em>belongs at home.</em>",
+
+        heroText:
+        "Minimal forms, warm textures and timeless details — thoughtfully created to make your everyday spaces feel softer.",
+
+        discover:
+        "Discover the collection",
+
+        ourStory:
+        "Our story",
+
+        floatingNote:
+        "Soft forms.<br>Natural calm.",
+
+        philosophy:
+        "PAWLI PHILOSOPHY",
+
+        introTitle:
+        "Less noise.<br><em>More feeling.</em>",
+
+        introText:
+        "PAWLI is a Moroccan home decor concept built around peaceful interiors, sculptural forms and small details that make a room feel complete.",
+
+        collectionEyebrow:
+        "THE COLLECTION",
+
+        collectionTitle:
+        "Pieces made to <em>stay.</em>",
+
+        collectionDescription:
+        "A calm and elegant piece designed for tables, shelves and quiet corners of your home.",
+
+        bestseller:
+        "Bestseller",
+
+        productName:
+        "PAWLI Signature Set",
+
+        productDescription:
+        "Vase · tray · sculptural bowl",
+
+        buyNow:
+        "Buy now →",
+
+        designedCare:
+        "DESIGNED WITH CARE",
+
+        sideTitle:
+        "An object that brings a touch of calm to your home.",
+
+        discoverPawli:
+        "Discover PAWLI",
+
+        storyEyebrow:
+        "OUR STORY",
+
+        storyTitle:
+        "Made in Morocco.<br><em>Made for moments.</em>",
+
+        storyText1:
+        "We believe a beautiful home does not need to be loud. PAWLI brings together clean silhouettes, gentle colors and handmade-inspired textures to create pieces that work naturally with your space.",
+
+        storyText2:
+        "Every detail is chosen with one idea in mind:",
+
+        storyStrong:
+        "your home should feel like you.",
+
+        talkPawli:
+        "Talk to PAWLI",
+
+        quote:
+        "Beauty lives in the details we choose to keep.",
+
+        contactEyebrow:
+        "GET IN TOUCH",
+
+        contactTitle:
+        "Bring a little<br><em>calm home.</em>",
+
+        contactText:
+        "For orders, questions or collaborations:",
+
+        location:
+        "Morocco · Online orders",
+
+        rights:
+        "All rights reserved.",
+
+        backTop:
+        "Back to top ↑",
+
+        orderEyebrow:
+        "PAWLI ORDER",
+
+        orderTitle:
+        "Make it yours.",
+
+        orderSubtitle:
+        "Fill in your details and we will contact you to confirm your order.",
+
+        nameLabel:
+        "Full name",
+
+        phoneLabel:
+        "Phone",
+
+        cityLabel:
+        "City",
+
+        addressLabel:
+        "Address",
+
+        quantityLabel:
+        "Quantity",
+
+        productLabel:
+        "Product",
+
+        confirmOrder:
+        "Confirm order",
+
+        privacy:
+        "Your information is used only to process your order.",
+
+        successEyebrow:
+        "ORDER RECEIVED",
+
+        successTitle:
+        "Thank you.",
+
+        successText:
+        "Your order has been sent via WhatsApp. We will contact you shortly to confirm the details.",
+
+        continue:
+        "Continue browsing",
+
+        namePlaceholder:
+        "Your full name",
+
+        cityPlaceholder:
+        "Meknes",
+
+        addressPlaceholder:
+        "Your delivery address"
+
+    }
+
+};
+
+
+/* =====================================================
+   CURRENT LANGUAGE
+===================================================== */
+
+let currentLanguage =
+localStorage.getItem("pawliLanguage") || "ar";
+
+
+/* =====================================================
+   CHANGE LANGUAGE
+===================================================== */
+
+function setLanguage(language){
+
+    if(!translations[language]){
+        language = "ar";
+    }
+
+    currentLanguage = language;
+
+    localStorage.setItem(
+        "pawliLanguage",
+        language
+    );
+
+    const data =
+    translations[language];
+
+
+    /* HTML direction */
+
+    document.documentElement.lang =
+    language;
+
+    document.documentElement.dir =
+    language === "ar" ? "rtl" : "ltr";
+
+
+    document.body.classList.toggle(
+        "rtl",
+        language === "ar"
+    );
+
+
+    /* Text */
+
+    document
+    .querySelectorAll("[data-i18n]")
+    .forEach(element => {
+
+        const key =
+        element.dataset.i18n;
+
+        if(data[key] !== undefined){
+
+            element.innerHTML =
+            data[key];
+
+        }
+
+    });
+
+
+    /* Placeholders */
+
+    const nameInput =
+    document.getElementById("customerName");
+
+    const cityInput =
+    document.querySelector(
+        'input[name="city"]'
+    );
+
+    const addressInput =
+    document.querySelector(
+        'input[name="address"]'
+    );
+
+
+    if(nameInput){
+        nameInput.placeholder =
+        data.namePlaceholder;
+    }
+
+    if(cityInput){
+        cityInput.placeholder =
+        data.cityPlaceholder;
+    }
+
+    if(addressInput){
+        addressInput.placeholder =
+        data.addressPlaceholder;
+    }
+
+
+    /* Active language */
+
+    document
+    .querySelectorAll(
+        ".language-switcher button"
+    )
+    .forEach(button => {
+
+        button.classList.toggle(
+            "active",
+            button.dataset.lang === language
+        );
+
+    });
+
+
+    /* Page title */
+
+    if(language === "ar"){
+
+        document.title =
+        "PAWLI — ديكور المنزل";
+
+    }
+
+    else if(language === "fr"){
+
+        document.title =
+        "PAWLI — Décoration intérieure";
+
+    }
+
+    else{
+
+        document.title =
+        "PAWLI — Home Decor";
+
+    }
 
 }
 
 
 /* =====================================================
-   MODAL ELEMENTS
+   LANGUAGE BUTTONS
+===================================================== */
+
+document
+.querySelectorAll(
+    ".language-switcher button"
+)
+.forEach(button => {
+
+    button.addEventListener(
+        "click",
+        function(){
+
+            setLanguage(
+                this.dataset.lang
+            );
+
+        }
+    );
+
+});
+
+
+/* =====================================================
+   MODAL
 ===================================================== */
 
 const modal =
@@ -1707,17 +2941,14 @@ document.getElementById("product");
 const productDisplay =
 document.getElementById("productDisplay");
 
-const formStatus =
-document.getElementById("formStatus");
-
-const submitOrder =
-document.getElementById("submitOrder");
-
 const formView =
 document.getElementById("formView");
 
 const successView =
 document.getElementById("successView");
+
+const submitOrder =
+document.getElementById("submitOrder");
 
 
 /* =====================================================
@@ -1726,37 +2957,17 @@ document.getElementById("successView");
 
 function openModal(product){
 
-    if(!modal) return;
+    productInput.value =
+    product;
 
-    if(productInput){
+    productDisplay.value =
+    "PAWLI Signature Set — 99 MAD";
 
-        productInput.value = product;
+    formView.hidden =
+    false;
 
-    }
-
-    if(productDisplay){
-
-        productDisplay.value = product;
-
-    }
-
-    if(formStatus){
-
-        formStatus.textContent = "";
-
-    }
-
-    if(formView){
-
-        formView.hidden = false;
-
-    }
-
-    if(successView){
-
-        successView.hidden = true;
-
-    }
+    successView.hidden =
+    true;
 
     modal.classList.add("open");
 
@@ -1765,7 +2976,8 @@ function openModal(product){
         "false"
     );
 
-    document.body.style.overflow = "hidden";
+    document.body.style.overflow =
+    "hidden";
 
 }
 
@@ -1776,8 +2988,6 @@ function openModal(product){
 
 function closeModal(){
 
-    if(!modal) return;
-
     modal.classList.remove("open");
 
     modal.setAttribute(
@@ -1785,7 +2995,27 @@ function closeModal(){
         "true"
     );
 
-    document.body.style.overflow = "";
+    document.body.style.overflow =
+    "";
+
+}
+
+
+/* =====================================================
+   RESET MODAL
+===================================================== */
+
+function resetModal(){
+
+    formView.hidden =
+    false;
+
+    successView.hidden =
+    true;
+
+    if(orderForm){
+        orderForm.reset();
+    }
 
 }
 
@@ -1802,10 +3032,9 @@ document
         "click",
         function(){
 
-            const product =
-            this.dataset.product;
-
-            openModal(product);
+            openModal(
+                this.dataset.product
+            );
 
         }
     );
@@ -1814,7 +3043,7 @@ document
 
 
 /* =====================================================
-   CLOSE BUTTONS
+   CLOSE MODAL
 ===================================================== */
 
 document
@@ -1828,7 +3057,7 @@ document
             closeModal();
 
             setTimeout(
-                resetOrderView,
+                resetModal,
                 300
             );
 
@@ -1836,33 +3065,6 @@ document
     );
 
 });
-
-
-/* =====================================================
-   RESET ORDER VIEW
-===================================================== */
-
-function resetOrderView(){
-
-    if(formView){
-
-        formView.hidden = false;
-
-    }
-
-    if(successView){
-
-        successView.hidden = true;
-
-    }
-
-    if(formStatus){
-
-        formStatus.textContent = "";
-
-    }
-
-}
 
 
 /* =====================================================
@@ -1875,16 +3077,10 @@ document.addEventListener(
 
         if(
             event.key === "Escape" &&
-            modal &&
             modal.classList.contains("open")
         ){
 
             closeModal();
-
-            setTimeout(
-                resetOrderView,
-                300
-            );
 
         }
 
@@ -1893,124 +3089,141 @@ document.addEventListener(
 
 
 /* =====================================================
-   ORDER FORM
+   SEND ORDER TO WHATSAPP
 ===================================================== */
 
-if(orderForm){
+orderForm.addEventListener(
+    "submit",
+    function(event){
 
-    orderForm.addEventListener(
-        "submit",
-        function(event){
-
-            event.preventDefault();
-
-            if(formStatus){
-
-                formStatus.textContent = "";
-
-            }
-
-            const formData =
-            new FormData(orderForm);
-
-            const name =
-            formData.get("name");
-
-            const phone =
-            formData.get("phone");
-
-            const city =
-            formData.get("city");
-
-            const address =
-            formData.get("address");
-
-            const product =
-            formData.get("product");
-
-            const quantity =
-            formData.get("quantity");
+        event.preventDefault();
 
 
-            /* =============================================
-               CREATE WHATSAPP MESSAGE
-            ============================================= */
-
-            const message =
-            "Hello PAWLI 👋\n\n" +
-
-            "I would like to place an order.\n\n" +
-
-            "🛍️ Product: " +
-            product +
-            "\n" +
-
-            "🔢 Quantity: " +
-            quantity +
-            "\n\n" +
-
-            "👤 Name: " +
-            name +
-            "\n" +
-
-            "📞 Phone: " +
-            phone +
-            "\n" +
-
-            "📍 City: " +
-            city +
-            "\n" +
-
-            "🏠 Address: " +
-            address +
-            "\n\n" +
-
-            "💰 Price: 99 MAD\n\n" +
-
-            "Thank you!";
+        const formData =
+        new FormData(orderForm);
 
 
-            /* =============================================
-               WHATSAPP URL
-            ============================================= */
+        const name =
+        formData.get("name");
 
-            const whatsappURL =
-            "https://wa.me/" +
-            WHATSAPP_NUMBER +
-            "?text=" +
-            encodeURIComponent(message);
+        const phone =
+        formData.get("phone");
 
+        const city =
+        formData.get("city");
 
-            /* =============================================
-               OPEN WHATSAPP
-            ============================================= */
+        const address =
+        formData.get("address");
 
-            window.open(
-                whatsappURL,
-                "_blank"
-            );
+        const quantity =
+        formData.get("quantity");
 
 
-            /* =============================================
-               SUCCESS SCREEN
-            ============================================= */
+        let message = "";
 
-            if(formView){
 
-                formView.hidden = true;
+        if(currentLanguage === "ar"){
 
-            }
+            message =
+            "🛍️ *طلب جديد من PAWLI*%0A%0A" +
 
-            if(successView){
+            "👤 الاسم: " +
+            encodeURIComponent(name) +
 
-                successView.hidden = false;
+            "%0A📞 الهاتف: " +
+            encodeURIComponent(phone) +
 
-            }
+            "%0A🏙️ المدينة: " +
+            encodeURIComponent(city) +
+
+            "%0A📍 العنوان: " +
+            encodeURIComponent(address) +
+
+            "%0A🛍️ المنتج: PAWLI Signature Set" +
+
+            "%0A💰 السعر: 99 MAD" +
+
+            "%0A🔢 الكمية: " +
+            encodeURIComponent(quantity);
 
         }
-    );
 
-}
+        else if(currentLanguage === "fr"){
+
+            message =
+            "🛍️ *Nouvelle commande PAWLI*%0A%0A" +
+
+            "👤 Nom : " +
+            encodeURIComponent(name) +
+
+            "%0A📞 Téléphone : " +
+            encodeURIComponent(phone) +
+
+            "%0A🏙️ Ville : " +
+            encodeURIComponent(city) +
+
+            "%0A📍 Adresse : " +
+            encodeURIComponent(address) +
+
+            "%0A🛍️ Produit : PAWLI Signature Set" +
+
+            "%0A💰 Prix : 99 MAD" +
+
+            "%0A🔢 Quantité : " +
+            encodeURIComponent(quantity);
+
+        }
+
+        else{
+
+            message =
+            "🛍️ *New PAWLI Order*%0A%0A" +
+
+            "👤 Name: " +
+            encodeURIComponent(name) +
+
+            "%0A📞 Phone: " +
+            encodeURIComponent(phone) +
+
+            "%0A🏙️ City: " +
+            encodeURIComponent(city) +
+
+            "%0A📍 Address: " +
+            encodeURIComponent(address) +
+
+            "%0A🛍️ Product: PAWLI Signature Set" +
+
+            "%0A💰 Price: 99 MAD" +
+
+            "%0A🔢 Quantity: " +
+            encodeURIComponent(quantity);
+
+        }
+
+
+        const whatsappURL =
+        "https://wa.me/" +
+        WHATSAPP_NUMBER +
+        "?text=" +
+        message;
+
+
+        window.open(
+            whatsappURL,
+            "_blank"
+        );
+
+
+        /* Show success */
+
+        formView.hidden =
+        true;
+
+        successView.hidden =
+        false;
+
+    }
+);
 
 
 /* =====================================================
@@ -2023,13 +3236,16 @@ document.getElementById("menuToggle");
 const mainNav =
 document.getElementById("mainNav");
 
+
 if(menuToggle && mainNav){
 
     menuToggle.addEventListener(
         "click",
         function(){
 
-            mainNav.classList.toggle("open");
+            mainNav.classList.toggle(
+                "open"
+            );
 
         }
     );
@@ -2051,7 +3267,9 @@ if(mainNav){
             "click",
             function(){
 
-                mainNav.classList.remove("open");
+                mainNav.classList.remove(
+                    "open"
+                );
 
             }
         );
@@ -2070,19 +3288,26 @@ window.addEventListener(
     function(){
 
         const header =
-        document.querySelector(".site-header");
+        document.querySelector(
+            ".site-header"
+        );
 
-        if(!header) return;
 
-        if(window.scrollY > 10){
+        if(
+            window.scrollY > 10
+        ){
 
-            header.classList.add("scrolled");
+            header.classList.add(
+                "scrolled"
+            );
 
         }
 
         else{
 
-            header.classList.remove("scrolled");
+            header.classList.remove(
+                "scrolled"
+            );
 
         }
 
@@ -2095,9 +3320,15 @@ window.addEventListener(
 ===================================================== */
 
 const revealElements =
-document.querySelectorAll(".reveal");
+document.querySelectorAll(
+    ".reveal"
+);
 
-if("IntersectionObserver" in window){
+
+if(
+    "IntersectionObserver"
+    in window
+){
 
     const observer =
     new IntersectionObserver(
@@ -2106,11 +3337,14 @@ if("IntersectionObserver" in window){
             entries.forEach(
                 function(entry){
 
-                    if(entry.isIntersecting){
+                    if(
+                        entry.isIntersecting
+                    ){
 
                         entry.target
                         .classList
                         .add("visible");
+
 
                         observer.unobserve(
                             entry.target
@@ -2127,10 +3361,13 @@ if("IntersectionObserver" in window){
         }
     );
 
+
     revealElements.forEach(
         function(element){
 
-            observer.observe(element);
+            observer.observe(
+                element
+            );
 
         }
     );
@@ -2142,7 +3379,9 @@ else{
     revealElements.forEach(
         function(element){
 
-            element.classList.add("visible");
+            element.classList.add(
+                "visible"
+            );
 
         }
     );
@@ -2151,15 +3390,21 @@ else{
 
 
 /* =====================================================
-   PAWLI READY
+   START
 ===================================================== */
+
+setLanguage(
+    currentLanguage
+);
+
 
 console.log(
     "PAWLI website ready."
 );
 
 console.log(
-    "Orders are handled through WhatsApp."
+    "Default language:",
+    currentLanguage
 );
 
 </script>
